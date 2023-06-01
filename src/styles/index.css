@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "bold";
+  src: url("../assets/fonts/Ubuntu-Bold.woff2") format("woff2"), url("../assets/fonts/Ubuntu-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("../assets/fonts/Ubuntu-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Ubuntu-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "medium";
+  src: url("../assets/fonts/Ubuntu-Medium.woff2") format("woff2"),
+    url("../assets/fonts/Ubuntu-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: "regular", Inter, system-ui, Arial, Helvetica, sans-serif;
+}
