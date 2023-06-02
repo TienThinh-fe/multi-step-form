@@ -1,11 +1,16 @@
 import styled from 'styled-components'
 
+import { Header } from '@/components/molecules'
+
 const Container = styled.div`
   width: 84%;
   height: 92%;
-  background: yellow;
 `
 
 export const Content = () => {
-  return <Container>Content</Container>
+  return (
+    <Container>
+      <Header />
+    </Container>
+  )
 }

@@ -3,7 +3,7 @@ import { PRIMARY_COLOR } from '@/components/_settings'
 
 const Container = styled.h3`
   font-family: 'regular';
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: ${PRIMARY_COLOR.grey};
 `
 

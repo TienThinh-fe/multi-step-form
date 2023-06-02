@@ -15,7 +15,6 @@ const Container = styled.div`
 `
 
 const ContentContainer = styled.div`
-  background: blue;
   display: flex;
   justify-content: center;
   align-items: flex-end;
