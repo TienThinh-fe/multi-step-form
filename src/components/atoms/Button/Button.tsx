@@ -22,7 +22,7 @@ const Container = styled.button`
 
 const Text = styled.span`
   color: white;
-  font-family: 'bold';
+  font-family: 'medium';
   font-size: 0.9rem;
 `
 
