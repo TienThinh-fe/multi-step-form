@@ -12,6 +12,11 @@ const Root = styled(Switch.Root)`
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none;
+  border: none;
+
+  &[data-state='checked'] {
+    background-color: #0c438f;
+  }
 
   :focus {
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
@@ -26,9 +31,10 @@ const Thumb = styled(Switch.Thumb)`
   border-radius: 9999px;
   transition: transform 100ms;
   will-change: transform;
+  transform: translateX(-2px);
 
   &[data-state='checked'] {
-    transform: translateX(20px);
+    transform: translateX(22px);
   }
 `
 
