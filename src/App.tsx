@@ -1,7 +1,9 @@
+import { Button } from './components/atoms'
+
 function App() {
   return (
     <div className="App">
-      <h1>App</h1>
+      <Button>Next Step</Button>
     </div>
   )
 }
