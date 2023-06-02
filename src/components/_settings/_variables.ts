@@ -8,3 +8,11 @@ export const PRIMARY_COLOR = {
   nextButton: '#174a8a',
   nextButtonHover: '#256DB9'
 }
+
+export const INPUT_COLOR = {
+  defaultBorder: '#e3e1e6',
+  activeBorder: '#b1aed4',
+  errorBorder: '#bf828b',
+  placeholder: '#a2a2a9',
+  text: '#21374e'
+}
