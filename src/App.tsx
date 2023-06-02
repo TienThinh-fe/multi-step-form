@@ -1,16 +1,20 @@
-import { Button, Title, Subtitle, Input } from './components/atoms'
-import { useState } from 'react'
+import styled from 'styled-components'
+
+import { MainBox } from '@/components/templates'
+
+const AppContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef5ff;
+`
 
 function App() {
-  const [firstName, setFirstName] = useState<string>('')
-
   return (
-    <div className="App">
-      <Button>Next Step</Button>
-      <Title>Personal info</Title>
-      <Subtitle>Use a permanent address where you can receive mail.</Subtitle>
-      <Input placeholder="First Name" text={firstName} setText={setFirstName} label="first name" />
-    </div>
+    <AppContainer>
+      <MainBox />
+    </AppContainer>
   )
 }
 
