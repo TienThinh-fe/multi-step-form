@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { Content } from '@/components/organisms'
-import { Background } from '@/components/atoms'
+import { Content, ListStep } from '@/components/organisms'
 
 const Container = styled.div`
   width: 50vw;
@@ -23,7 +22,8 @@ const ContentContainer = styled.div`
 export const MainBox = () => {
   return (
     <Container>
-      <Background />
+      <ListStep />
+
       <ContentContainer>
         <Content />
       </ContentContainer>
