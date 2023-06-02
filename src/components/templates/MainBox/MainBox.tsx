@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { Content } from '@/components/organisms'
+
 const Container = styled.div`
   width: 60vw;
   height: 72vh;
@@ -12,11 +14,20 @@ const Container = styled.div`
   padding: 20px;
 `
 
+const ContentContainer = styled.div`
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`
+
 export const MainBox = () => {
   return (
     <Container>
       <div style={{ backgroundColor: 'red' }}>Left</div>
-      <div style={{ backgroundColor: 'blue' }}>Right</div>
+      <ContentContainer>
+        <Content />
+      </ContentContainer>
     </Container>
   )
 }
