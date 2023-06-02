@@ -36,7 +36,7 @@ const Container = styled.input`
 type InputProps = {
   label: string
   placeholder: string
-  key: string
+  infoKey: string
   value: string
   setValue: (key: string, text: string) => void
 }
@@ -52,7 +52,7 @@ export const Input = (props: InputProps) => {
         id={inputId}
         placeholder={props.placeholder}
         value={props.value}
-        onChange={(e) => props.setValue(props.key, e.target.value)}
+        onChange={(e) => props.setValue(props.infoKey, e.target.value)}
       />
     </Label>
   )

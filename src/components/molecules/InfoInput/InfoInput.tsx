@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import styled from 'styled-components'
 
 import { Input } from '@/components/atoms'
@@ -17,33 +17,33 @@ export const InfoInput = () => {
     phone: ''
   })
 
-  const handleChange = (key: string, value: string) => {
-    setInfo({
-      ...info,
+  const handleChange = useCallback((key: string, value: string) => {
+    setInfo((prevInfo) => ({
+      ...prevInfo,
       [key]: value
-    })
-  }
+    }))
+  }, [])
 
   return (
     <Container>
       <Input
         placeholder="e.g. Tien Thinh"
         label="Name"
-        key={Object.keys(info)[0]}
-        value={info.email}
+        infoKey={Object.keys(info)[0]}
+        value={info.name}
         setValue={handleChange}
       />
       <Input
         placeholder="e.g. thinh@gmail.com"
         label="Email Address"
-        key={Object.keys(info)[1]}
+        infoKey={Object.keys(info)[1]}
         value={info.email}
         setValue={handleChange}
       />
       <Input
         placeholder="e.g. 0123456789"
         label="Phone Number"
-        key={Object.keys(info)[2]}
+        infoKey={Object.keys(info)[2]}
         value={info.phone}
         setValue={handleChange}
       />
