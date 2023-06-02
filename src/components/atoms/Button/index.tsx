@@ -9,14 +9,14 @@ const Container = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
-  transition: background-color, scale 0.3s ease;
+  transition: background-color 0.3s ease, scale 0.4s ease;
 
   &:hover {
     background-color: ${PRIMARY_COLOR.nextButtonHover};
   }
 
   &:active {
-    scale: 0.9;
+    scale: 0.95;
   }
 `
 
