@@ -1,6 +1,6 @@
 import { Step } from '@/components/molecules'
 
-import { LIST_STEPS } from '@/libs/constants'
+import { STEPS } from '@/libs/constants'
 
 import styled from 'styled-components'
 
@@ -22,7 +22,7 @@ export const ListStep = () => {
   return (
     <Container>
       <ListWrapper>
-        {LIST_STEPS.map((step) => (
+        {STEPS.map((step) => (
           <Step key={step.id} order={step.order} content={step.content} />
         ))}
       </ListWrapper>

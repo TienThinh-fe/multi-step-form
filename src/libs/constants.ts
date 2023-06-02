@@ -1,4 +1,6 @@
-const LIST_STEPS = [
+import { Plan } from '@/models/plan'
+
+const STEPS = [
   {
     id: 1,
     order: 1,
@@ -21,4 +23,22 @@ const LIST_STEPS = [
   }
 ]
 
-export { LIST_STEPS }
+const PLANS: Plan[] = [
+  {
+    id: 1,
+    title: 'arcade',
+    price: 9
+  },
+  {
+    id: 2,
+    title: 'advanced',
+    price: 12
+  },
+  {
+    id: 3,
+    title: 'pro',
+    price: 15
+  }
+]
+
+export { STEPS, PLANS }

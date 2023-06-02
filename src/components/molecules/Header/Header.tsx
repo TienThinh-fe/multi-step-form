@@ -8,13 +8,19 @@ const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
+  user-select: none;
 `
 
-export const Header = () => {
+type HeaderProps = {
+  title: string
+  subtitle: string
+}
+
+export const Header = ({ title, subtitle }: HeaderProps) => {
   return (
     <Container>
-      <Title>Personal info</Title>
-      <Subtitle>Please provide your name, email address, and phone number</Subtitle>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
     </Container>
   )
 }
