@@ -4,7 +4,7 @@ import { Content } from '@/components/organisms'
 
 const Container = styled.div`
   width: 60vw;
-  height: 72vh;
+  height: 68vh;
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 0 16px rgba(126, 125, 125, 0.1);

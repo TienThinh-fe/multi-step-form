@@ -6,16 +6,15 @@ const Label = styled.label`
   display: flex;
   flex-direction: column;
   font-family: 'regular';
-  gap: 6px;
+  gap: 10px;
   color: ${INPUT_COLOR.text};
   text-transform: capitalize;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 `
 
 const Container = styled.input`
   font-family: 'bold';
   font-size: 0.9rem;
-  width: 100px; // TODO: remove this when layout is complete
   height: 40px;
   border: 2px solid ${INPUT_COLOR.defaultBorder};
   border-radius: 8px;
@@ -37,8 +36,9 @@ const Container = styled.input`
 type InputProps = {
   label: string
   placeholder: string
-  text: string
-  setText: (text: string) => void
+  key: string
+  value: string
+  setValue: (key: string, text: string) => void
 }
 
 export const Input = (props: InputProps) => {
@@ -51,8 +51,8 @@ export const Input = (props: InputProps) => {
       <Container
         id={inputId}
         placeholder={props.placeholder}
-        value={props.text}
-        onChange={(e) => props.setText(e.target.value)}
+        value={props.value}
+        onChange={(e) => props.setValue(props.key, e.target.value)}
       />
     </Label>
   )
