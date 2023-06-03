@@ -1,4 +1,5 @@
 import { Plan } from '@/models/plan'
+import { Addons } from '@/models/addons'
 
 const STEPS = [
   {
@@ -41,4 +42,28 @@ const PLANS: Plan[] = [
   }
 ]
 
-export { STEPS, PLANS }
+const ADDONS: Addons[] = [
+  {
+    id: 1,
+    name: 'Online service',
+    price: 1,
+    description: 'Access to multiplayer games',
+    isChecked: false
+  },
+  {
+    id: 2,
+    name: 'Larger storage',
+    price: 2,
+    description: 'Extra 1TB of cloud save',
+    isChecked: false
+  },
+  {
+    id: 3,
+    name: 'Customizable Profile',
+    price: 2,
+    description: 'Customize theme on your profile',
+    isChecked: false
+  }
+]
+
+export { STEPS, PLANS, ADDONS }
