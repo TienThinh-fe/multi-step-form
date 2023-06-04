@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import { PRIMARY_COLOR } from '@/components/_settings'
 
+import { useStep } from '@/hooks/step'
+
 const Content = styled.button`
   all: unset;
   width: fit-content;
@@ -23,8 +25,10 @@ const Text = styled.span`
 `
 
 export const Back = () => {
+  const { prev } = useStep()
+
   return (
-    <Content>
+    <Content onClick={() => prev()}>
       <Text>Go Back</Text>
     </Content>
   )

@@ -5,6 +5,7 @@ import { Button, Back } from '@/components/atoms'
 import { ContentContainer } from './Container'
 
 import { PLANS } from '@/libs/constants'
+import { useStep } from '@/hooks/step'
 
 const Wrapper = styled.div`
   display: flex;
@@ -26,6 +27,8 @@ const ButtonContainer = styled.div`
 `
 
 export const Plan = () => {
+  const { next } = useStep()
+
   return (
     <ContentContainer>
       <Header title="Select your plan" subtitle="You have the option of monthly or yearly billing" />
@@ -39,7 +42,7 @@ export const Plan = () => {
       </Wrapper>
       <ButtonContainer>
         <Back />
-        <Button>Next Step</Button>
+        <Button handleClick={() => next()}>Next Step</Button>
       </ButtonContainer>
     </ContentContainer>
   )

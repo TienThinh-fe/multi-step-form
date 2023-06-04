@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
-import { Finish, ListStep } from '@/components/organisms'
+import { Info, Plan, AddOns, Finish, ListStep } from '@/components/organisms'
 
 const Container = styled.div`
   width: 50vw;
@@ -19,14 +20,21 @@ const ContentContainer = styled.div`
   align-items: flex-end;
 `
 
+const MAPPING_CONTENT = {
+  1: <Info />,
+  2: <Plan />,
+  3: <AddOns />,
+  4: <Finish />
+}
+
 export const MainBox = () => {
+  const activeStep = useSelector((state: any) => state.stepReducer.activeStep)
+
   return (
     <Container>
       <ListStep />
 
-      <ContentContainer>
-        <Finish />
-      </ContentContainer>
+      <ContentContainer>{MAPPING_CONTENT[activeStep as keyof typeof MAPPING_CONTENT]}</ContentContainer>
     </Container>
   )
 }

@@ -29,11 +29,12 @@ const Text = styled.span`
 type ButtonProps = {
   children: React.ReactNode
   className?: string
+  handleClick?: () => void
 }
 
 export const Button = (props: ButtonProps) => {
   return (
-    <Container className={props.className}>
+    <Container className={props.className} onClick={props.handleClick}>
       <Text>{props.children}</Text>
     </Container>
   )

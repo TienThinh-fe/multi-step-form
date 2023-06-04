@@ -6,6 +6,7 @@ import { Button, Back } from '@/components/atoms'
 import { ContentContainer } from './Container'
 
 import { ADDONS } from '@/libs/constants'
+import { useStep } from '@/hooks/step'
 
 const AddonsContainer = styled.div`
   display: flex;
@@ -21,6 +22,8 @@ const ButtonContainer = styled.div`
 `
 
 export const AddOns = () => {
+  const { next } = useStep()
+
   return (
     <ContentContainer>
       <Header title="Pick add-ons" subtitle="Add-ons help enhance your gaming experience" />
@@ -37,7 +40,7 @@ export const AddOns = () => {
       </AddonsContainer>
       <ButtonContainer>
         <Back />
-        <Button>Next Step</Button>
+        <Button handleClick={() => next()}>Next Step</Button>
       </ButtonContainer>
     </ContentContainer>
   )

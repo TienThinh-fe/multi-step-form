@@ -1,7 +1,8 @@
 import { Plan } from '@/models/plan'
 import { Addons } from '@/models/addons'
+import { Step } from '@/models/step'
 
-const STEPS = [
+const STEPS: Step[] = [
   {
     id: 1,
     order: 1,
