@@ -28,11 +28,12 @@ const Text = styled.span`
 
 type ButtonProps = {
   children: React.ReactNode
+  className?: string
 }
 
 export const Button = (props: ButtonProps) => {
   return (
-    <Container>
+    <Container className={props.className}>
       <Text>{props.children}</Text>
     </Container>
   )

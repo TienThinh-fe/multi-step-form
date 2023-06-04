@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { AddOns, ListStep } from '@/components/organisms'
+import { Finish, ListStep } from '@/components/organisms'
 
 const Container = styled.div`
   width: 50vw;
@@ -25,7 +25,7 @@ export const MainBox = () => {
       <ListStep />
 
       <ContentContainer>
-        <AddOns />
+        <Finish />
       </ContentContainer>
     </Container>
   )
