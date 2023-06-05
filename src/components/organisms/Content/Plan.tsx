@@ -1,5 +1,6 @@
-import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
 import { useState } from 'react'
+import styled from 'styled-components'
 
 import { Header, PlanOption, PlanSwitch } from '@/components/molecules'
 import { Button, Back } from '@/components/atoms'
@@ -30,6 +31,17 @@ const ButtonContainer = styled.div`
 export const Plan = () => {
   const [activePlan, setActivePlan] = useState(PLANS[0].id)
   const { next } = useStep()
+  const dispatch = useDispatch()
+
+  const handleClickNext = () => {
+    next()
+    dispatch({
+      type: 'SET_PLAN',
+      payload: {
+        plan: PLANS.find((plan) => plan.id === activePlan)
+      }
+    })
+  }
 
   return (
     <ContentContainer>
@@ -49,7 +61,7 @@ export const Plan = () => {
       </Wrapper>
       <ButtonContainer>
         <Back />
-        <Button handleClick={() => next()}>Next Step</Button>
+        <Button handleClick={handleClickNext}>Next Step</Button>
       </ButtonContainer>
     </ContentContainer>
   )

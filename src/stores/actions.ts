@@ -10,11 +10,11 @@ const setEmail = (email: string) => ({ type: 'SET_EMAIL', email })
 
 const setPhone = (phone: string) => ({ type: 'SET_PHONE', phone })
 
-const setInfo = (name: string, email: string, phone: string) => ({
-  type: 'SET_INFO',
+const setPersonalInfo = (name: string, email: string, phone: string) => ({
+  type: 'SET_PERSONAL_INFO',
   name,
   email,
   phone
 })
 
-export { nextStep, prevStep, switchPlan, setName, setEmail, setPhone, setInfo }
+export { nextStep, prevStep, switchPlan, setName, setEmail, setPhone, setPersonalInfo }
