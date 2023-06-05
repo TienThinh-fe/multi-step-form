@@ -21,7 +21,7 @@ const ContentContainer = styled.div`
 `
 
 const MAPPING_CONTENT = {
-  1: <Plan />,
+  1: <Info />,
   2: <Plan />,
   3: <AddOns />,
   4: <Finish />
