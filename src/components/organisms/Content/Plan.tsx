@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import styled from 'styled-components'
 
@@ -8,6 +8,7 @@ import { ContentContainer } from './Container'
 
 import { PLANS } from '@/libs/constants'
 import { useStep } from '@/hooks/step'
+import isEmpty from 'lodash.isempty'
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,9 +30,11 @@ const ButtonContainer = styled.div`
 `
 
 export const Plan = () => {
-  const [activePlan, setActivePlan] = useState(PLANS[0].id)
-  const { next } = useStep()
+  const info = useSelector((state: any) => state.infoReducer)
   const dispatch = useDispatch()
+
+  const [activePlan, setActivePlan] = useState(isEmpty(info.selectedPlan) ? PLANS[0].id : info.selectedPlan.id)
+  const { next } = useStep()
 
   const handleClickNext = () => {
     next()

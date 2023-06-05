@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import styled from 'styled-components'
 
@@ -8,6 +9,7 @@ import { ContentContainer } from './Container'
 
 import { ADDONS } from '@/libs/constants'
 import { useStep } from '@/hooks/step'
+import isEmpty from 'lodash.isempty'
 
 const AddonsContainer = styled.div`
   display: flex;
@@ -23,9 +25,24 @@ const ButtonContainer = styled.div`
 `
 
 export const AddOns = () => {
-  const [checkedAddons, setCheckedAddons] = useState<number[]>([])
+  const { addons } = useSelector((state: any) => state.infoReducer)
+  const dispatch = useDispatch()
+
+  const [checkedAddons, setCheckedAddons] = useState<number[]>(
+    isEmpty(addons) ? [] : addons.map((addon: any) => addon.id)
+  )
 
   const { next } = useStep()
+
+  const handleClickNext = () => {
+    dispatch({
+      type: 'SET_ADDONS',
+      payload: {
+        addons: ADDONS.filter((addon) => checkedAddons.includes(addon.id))
+      }
+    })
+    next()
+  }
 
   return (
     <ContentContainer>
@@ -51,7 +68,7 @@ export const AddOns = () => {
       </AddonsContainer>
       <ButtonContainer>
         <Back />
-        <Button handleClick={() => next()}>Next Step</Button>
+        <Button handleClick={handleClickNext}>Next Step</Button>
       </ButtonContainer>
     </ContentContainer>
   )

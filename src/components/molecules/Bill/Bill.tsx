@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { PRIMARY_COLOR } from '@/components/_settings'
-
 import { BillPlan, Separator, BillAddon, Total } from '@/components/atoms'
 
 const Container = styled.div`

@@ -17,4 +17,6 @@ const setPersonalInfo = (name: string, email: string, phone: string) => ({
   phone
 })
 
-export { nextStep, prevStep, switchPlan, setName, setEmail, setPhone, setPersonalInfo }
+const setAddons = (addons: string[]) => ({ type: 'SET_ADDONS', addons })
+
+export { nextStep, prevStep, switchPlan, setName, setEmail, setPhone, setPersonalInfo, setAddons }

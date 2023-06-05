@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { PRIMARY_COLOR } from '@/components/_settings'
+
+import { Addons as AddonsType } from '@/models/addons'
 
 const Container = styled.div`
   display: flex;
@@ -27,16 +30,17 @@ const Price = styled.span`
 `
 
 export const BillAddon = () => {
+  const { addons } = useSelector((state: any) => state.infoReducer)
+  const plan = useSelector((state: any) => state.planReducer.plan)
+
   return (
     <Container>
-      <Wrapper>
-        <Name>Online service</Name>
-        <Price>+$1/mo</Price>
-      </Wrapper>
-      <Wrapper>
-        <Name>Online service</Name>
-        <Price>+$1/mo</Price>
-      </Wrapper>
+      {addons.map((addon: AddonsType) => (
+        <Wrapper key={addon.id}>
+          <Name>{addon.name}</Name>
+          <Price>{plan === 'monthly' ? `+$${addon.price}/mo` : `$${addon.price * 10}/yr`}</Price>
+        </Wrapper>
+      ))}
     </Container>
   )
 }

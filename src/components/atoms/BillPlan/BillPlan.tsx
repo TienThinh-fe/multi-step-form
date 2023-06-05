@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { PRIMARY_COLOR } from '@/components/_settings'
@@ -18,6 +19,7 @@ const PlanName = styled.span`
   font-size: 1.25rem;
   font-family: 'bold';
   color: ${PRIMARY_COLOR.blue};
+  text-transform: capitalize;
 `
 
 const ChangeButton = styled.button`
@@ -46,15 +48,20 @@ const Price = styled.span`
 `
 
 export const BillPlan = () => {
+  const { selectedPlan } = useSelector((state: any) => state.infoReducer)
+  const plan = useSelector((state: any) => state.planReducer.plan)
+
   return (
     <Container>
       <Plan>
-        <PlanName>Arcade (Monthly)</PlanName>
+        <PlanName>
+          {selectedPlan.title} ({plan})
+        </PlanName>
         <ChangeButton>
           <span>Change</span>
         </ChangeButton>
       </Plan>
-      <Price>$9/mo</Price>
+      <Price>{plan === 'monthly' ? '$' + selectedPlan.price + '/mo' : '$' + selectedPlan.price * 10 + '/yr'}</Price>
     </Container>
   )
 }

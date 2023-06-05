@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 import { CustomSwitch } from '@/components/atoms'
@@ -21,11 +22,13 @@ const Text = styled.span<{ isActive?: boolean }>`
 `
 
 export const PlanSwitch = () => {
+  const plan = useSelector((state: any) => state.planReducer.plan)
+
   return (
     <Container>
-      <Text isActive>Monthly</Text>
+      <Text isActive={plan === 'monthly'}>Monthly</Text>
       <CustomSwitch />
-      <Text>Yearly</Text>
+      <Text isActive={plan === 'yearly'}>Yearly</Text>
     </Container>
   )
 }

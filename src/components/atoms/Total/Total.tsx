@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useTotal } from '@/hooks/total'
 
 import { PRIMARY_COLOR } from '@/components/_settings'
 
@@ -22,10 +23,12 @@ const Price = styled.span`
 `
 
 export const Total = () => {
+  const { total } = useTotal()
+
   return (
     <Container>
       <Text>Total (per month)</Text>
-      <Price>$10/mo</Price>
+      <Price>${total}/mo</Price>
     </Container>
   )
 }

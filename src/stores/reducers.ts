@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { Plan } from '@/models/plan'
+import { Addons } from '@/models/addons'
 
 type StepState = {
   activeStep: number
@@ -14,6 +15,7 @@ type InfoState = {
   email: string
   phone: string
   selectedPlan: Plan
+  addons: Addons[]
 }
 
 const stepState: StepState = {
@@ -32,7 +34,8 @@ const infoState: InfoState = {
     id: 1,
     title: 'arcade',
     price: 9
-  }
+  },
+  addons: []
 }
 
 const stepReducer = (state = stepState, action: any) => {
@@ -88,10 +91,15 @@ const infoReducer = (state = infoState, action: any) => {
         ...state,
         phone: action.payload
       }
-    case 'SWITCH_PLAN':
+    case 'SET_PLAN':
       return {
         ...state,
-        selectedPlan: action.payload
+        selectedPlan: action.payload.plan
+      }
+    case 'SET_ADDONS':
+      return {
+        ...state,
+        addons: action.payload.addons
       }
     default:
       return state

@@ -30,9 +30,9 @@ export const InfoInput = () => {
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
     defaultValues: {
-      name: info.name,
-      email: info.email,
-      phone: info.phone
+      name: 'a',
+      email: 'a@a.a',
+      phone: '0987139803'
     }
   })
 
@@ -41,7 +41,7 @@ export const InfoInput = () => {
   const onSubmit = (data: FormValues) => {
     next()
     dispatch({
-      type: 'SET_INFO',
+      type: 'SET_PERSONAL_INFO',
       payload: {
         name: data.name,
         email: data.email,
