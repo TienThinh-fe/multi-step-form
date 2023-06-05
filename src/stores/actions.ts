@@ -4,4 +4,17 @@ const prevStep = () => ({ type: 'PREV_STEP' })
 
 const switchPlan = () => ({ type: 'SWITCH_PLAN' })
 
-export { nextStep, prevStep, switchPlan }
+const setName = (name: string) => ({ type: 'SET_NAME', name })
+
+const setEmail = (email: string) => ({ type: 'SET_EMAIL', email })
+
+const setPhone = (phone: string) => ({ type: 'SET_PHONE', phone })
+
+const setInfo = (name: string, email: string, phone: string) => ({
+  type: 'SET_INFO',
+  name,
+  email,
+  phone
+})
+
+export { nextStep, prevStep, switchPlan, setName, setEmail, setPhone, setInfo }

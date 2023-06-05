@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
 import { Input } from '@/components/atoms'
@@ -18,19 +19,35 @@ type FormValues = {
 }
 
 export const InfoInput = () => {
+  const info = useSelector((state: any) => state.infoReducer)
+  const dispatch = useDispatch()
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<FormValues>({
     mode: 'onSubmit',
-    reValidateMode: 'onSubmit'
+    reValidateMode: 'onSubmit',
+    defaultValues: {
+      name: info.name,
+      email: info.email,
+      phone: info.phone
+    }
   })
 
   const { next } = useStep()
 
   const onSubmit = (data: FormValues) => {
     next()
+    dispatch({
+      type: 'SET_INFO',
+      payload: {
+        name: data.name,
+        email: data.email,
+        phone: data.phone
+      }
+    })
   }
 
   return (
