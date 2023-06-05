@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useState } from 'react'
 
 import { Header, PlanOption, PlanSwitch } from '@/components/molecules'
 import { Button, Back } from '@/components/atoms'
@@ -27,6 +28,7 @@ const ButtonContainer = styled.div`
 `
 
 export const Plan = () => {
+  const [activePlan, setActivePlan] = useState(PLANS[0].id)
   const { next } = useStep()
 
   return (
@@ -35,7 +37,12 @@ export const Plan = () => {
       <Wrapper>
         <PlanContainer>
           {PLANS.map((plan) => (
-            <PlanOption key={plan.id} plan={plan} />
+            <PlanOption
+              key={plan.id}
+              plan={plan}
+              isActive={activePlan === plan.id}
+              handleClick={() => setActivePlan(plan.id)}
+            />
           ))}
         </PlanContainer>
         <PlanSwitch />

@@ -9,7 +9,7 @@ import { PlanContent } from '@/components/atoms'
 import { INPUT_COLOR } from '@/components/_settings'
 import { Plan as PlanType } from '@/models/plan'
 
-const Container = styled.div`
+const Container = styled.div<{ isActive: boolean }>`
   width: 22%;
   height: 120px;
   padding: 5% 4%;
@@ -26,13 +26,23 @@ const Container = styled.div`
 
   &:hover {
     border: 2px solid ${INPUT_COLOR.activeBorder};
-    background-color: #fbfbfb;
+    background-color: #fffdff;
     box-shadow: 0px 4px 8px rgba(192, 192, 192, 0.1);
   }
+
+  ${({ isActive }) =>
+    isActive &&
+    `
+    border: 2px solid ${INPUT_COLOR.activeBorder};
+    background-color: #fdf8fd !important;
+    box-shadow: 0px 4px 8px rgba(192, 192, 192, 0.1);
+  `}
 `
 
 type PlanOptionProps = {
   plan: PlanType
+  isActive: boolean
+  handleClick: () => void
 }
 
 const MAPPING_ICONS = {
@@ -41,9 +51,9 @@ const MAPPING_ICONS = {
   pro: <ProIcon />
 }
 
-export const PlanOption = ({ plan }: PlanOptionProps) => {
+export const PlanOption = ({ plan, isActive, handleClick }: PlanOptionProps) => {
   return (
-    <Container>
+    <Container isActive={isActive} onClick={handleClick}>
       {MAPPING_ICONS[plan.title as keyof typeof MAPPING_ICONS]}
       <PlanContent title={plan.title} price={plan.price} />
     </Container>
