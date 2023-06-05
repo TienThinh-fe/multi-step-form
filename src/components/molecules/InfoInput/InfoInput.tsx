@@ -30,9 +30,9 @@ export const InfoInput = () => {
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
     defaultValues: {
-      name: 'a',
-      email: 'a@a.a',
-      phone: '0987139803'
+      name: info.name,
+      email: info.email,
+      phone: info.phone
     }
   })
 
