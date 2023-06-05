@@ -1,6 +1,8 @@
-import styled from 'styled-components'
-import { INPUT_COLOR } from '@/components/_settings'
 import { useId } from 'react'
+import styled from 'styled-components'
+import { UseFormRegister } from 'react-hook-form'
+
+import { INPUT_COLOR, PRIMARY_COLOR } from '@/components/_settings'
 
 const Label = styled.label`
   display: flex;
@@ -10,10 +12,11 @@ const Label = styled.label`
   color: ${INPUT_COLOR.text};
   text-transform: capitalize;
   font-size: 0.9rem;
+  position: relative;
 `
 
 const Container = styled.input`
-  font-family: 'bold';
+  font-family: 'medium';
   font-size: 0.9rem;
   height: 40px;
   border: 2px solid ${INPUT_COLOR.defaultBorder};
@@ -33,12 +36,28 @@ const Container = styled.input`
   }
 `
 
+const ErrorMessage = styled.span`
+  font-family: 'medium';
+  font-size: 0.8rem;
+  color: ${PRIMARY_COLOR.red};
+  position: absolute;
+  right: 0;
+  top: 0;
+`
+
+type FormValues = {
+  name: string
+  email: string
+  phone: string
+}
+
 type InputProps = {
   label: string
   placeholder: string
-  infoKey: string
-  value: string
-  setValue: (key: string, text: string) => void
+  register: UseFormRegister<FormValues>
+  name: 'name' | 'email' | 'phone'
+  validationSchema?: any
+  errors: any
 }
 
 export const Input = (props: InputProps) => {
@@ -48,12 +67,8 @@ export const Input = (props: InputProps) => {
     <Label htmlFor={inputId}>
       {props.label}
 
-      <Container
-        id={inputId}
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={(e) => props.setValue(props.infoKey, e.target.value)}
-      />
+      <Container id={inputId} placeholder={props.placeholder} {...props.register(props.name, props.validationSchema)} />
+      {props.errors[props.name] && <ErrorMessage>{props.errors[props.name].message}</ErrorMessage>}
     </Label>
   )
 }

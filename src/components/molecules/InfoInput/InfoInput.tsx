@@ -1,52 +1,80 @@
-import { useCallback, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 
 import { Input } from '@/components/atoms'
+import { useStep } from '@/hooks/step'
 
-const Container = styled.div`
+const Container = styled.form`
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin-top: -80px;
 `
 
+type FormValues = {
+  name: string
+  email: string
+  phone: string
+}
+
 export const InfoInput = () => {
-  const [info, setInfo] = useState({
-    name: '',
-    email: '',
-    phone: ''
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<FormValues>({
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit'
   })
 
-  const handleChange = useCallback((key: string, value: string) => {
-    setInfo((prevInfo) => ({
-      ...prevInfo,
-      [key]: value
-    }))
-  }, [])
+  const { next } = useStep()
+
+  const onSubmit = (data: FormValues) => {
+    next()
+  }
 
   return (
-    <Container>
+    <Container id="form" onSubmit={handleSubmit(onSubmit)}>
       <Input
         placeholder="e.g. Tien Thinh"
         label="Name"
-        infoKey={Object.keys(info)[0]}
-        value={info.name}
-        setValue={handleChange}
+        register={register}
+        name="name"
+        validationSchema={{
+          required: 'This field is required'
+        }}
+        errors={errors}
       />
       <Input
         placeholder="e.g. thinh@gmail.com"
         label="Email Address"
-        infoKey={Object.keys(info)[1]}
-        value={info.email}
-        setValue={handleChange}
+        register={register}
+        name="email"
+        errors={errors}
+        validationSchema={{
+          required: 'This field is required',
+          pattern: {
+            value:
+              /^[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.(-?[a-zA-Z0-9])+$/,
+            message: 'Invalid email'
+          }
+        }}
       />
       <Input
         placeholder="e.g. 0123456789"
         label="Phone Number"
-        infoKey={Object.keys(info)[2]}
-        value={info.phone}
-        setValue={handleChange}
+        register={register}
+        name="phone"
+        errors={errors}
+        validationSchema={{
+          required: 'This field is required',
+          pattern: {
+            value: /^0[0-9]{9}$/,
+            message: 'Invalid phone number'
+          }
+        }}
       />
+      <input type="submit" hidden />
     </Container>
   )
 }
