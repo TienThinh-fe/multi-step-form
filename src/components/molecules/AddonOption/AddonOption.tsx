@@ -27,15 +27,17 @@ const Container = styled.div`
 `
 
 type AddonOptionProps = {
+  id: number
   name: string
   price: number
   description: string
   isChecked: boolean
+  setCheckedAddons: () => void
 }
 
 export const AddonOption = (props: AddonOptionProps) => {
   return (
-    <Container>
+    <Container onClick={props.setCheckedAddons}>
       <CustomCheckbox isChecked={props.isChecked} />
       <AddonContent name={props.name} description={props.description} />
       <AddonPrice price={props.price} />

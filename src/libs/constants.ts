@@ -48,22 +48,19 @@ const ADDONS: Addons[] = [
     id: 1,
     name: 'Online service',
     price: 1,
-    description: 'Access to multiplayer games',
-    isChecked: false
+    description: 'Access to multiplayer games'
   },
   {
     id: 2,
     name: 'Larger storage',
     price: 2,
-    description: 'Extra 1TB of cloud save',
-    isChecked: false
+    description: 'Extra 1TB of cloud save'
   },
   {
     id: 3,
     name: 'Customizable Profile',
     price: 2,
-    description: 'Customize theme on your profile',
-    isChecked: false
+    description: 'Customize theme on your profile'
   }
 ]
 

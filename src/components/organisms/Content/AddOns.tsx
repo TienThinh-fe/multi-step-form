@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import { Header, AddonOption } from '@/components/molecules'
@@ -22,6 +23,8 @@ const ButtonContainer = styled.div`
 `
 
 export const AddOns = () => {
+  const [checkedAddons, setCheckedAddons] = useState<number[]>([])
+
   const { next } = useStep()
 
   return (
@@ -31,10 +34,18 @@ export const AddOns = () => {
         {ADDONS.map((addon) => (
           <AddonOption
             key={addon.id}
+            id={addon.id}
             name={addon.name}
             price={addon.price}
             description={addon.description}
-            isChecked={addon.isChecked}
+            isChecked={checkedAddons.includes(addon.id)}
+            setCheckedAddons={() => {
+              if (checkedAddons.includes(addon.id)) {
+                setCheckedAddons(checkedAddons.filter((checkedAddon) => checkedAddon !== addon.id))
+              } else {
+                setCheckedAddons([...checkedAddons, addon.id])
+              }
+            }}
           />
         ))}
       </AddonsContainer>

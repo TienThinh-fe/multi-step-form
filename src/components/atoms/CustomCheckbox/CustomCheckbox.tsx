@@ -34,7 +34,7 @@ type CustomCheckboxProps = {
 
 export const CustomCheckbox = ({ isChecked }: CustomCheckboxProps) => {
   return (
-    <Root>
+    <Root checked={isChecked}>
       <Indicator>
         <TickIcon />
       </Indicator>

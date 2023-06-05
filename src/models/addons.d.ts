@@ -3,5 +3,4 @@ export type Addons = {
   name: string
   price: number
   description: string
-  isChecked: boolean
 }
