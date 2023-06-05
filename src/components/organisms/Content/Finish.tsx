@@ -29,7 +29,7 @@ const ButtonConfirm = styled(Button)`
 export const Finish = () => {
   return (
     <ContentContainer>
-      <Header title="Pick add-ons" subtitle="Add-ons help enhance your gaming experience" />
+      <Header title="Finishing up" subtitle="Double-check everything before confirming" />
       <BillContainer>
         <Bill />
       </BillContainer>

@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 import { Header, InfoInput } from '@/components/molecules'
 
-import { useStep } from '@/hooks/step'
-
 import { ContentContainer } from './Container'
 import { PRIMARY_COLOR } from '@/components/_settings'
 
@@ -38,8 +36,6 @@ const Text = styled.span`
 `
 
 export const Info = () => {
-  const { next } = useStep()
-
   return (
     <ContentContainer>
       <Header title="Personal info" subtitle="Please provide your name, email address, and phone number" />
