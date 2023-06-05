@@ -1,5 +1,6 @@
 import * as Switch from '@radix-ui/react-switch'
 import styled from 'styled-components'
+import { useDispatch } from 'react-redux'
 
 import { PRIMARY_COLOR } from '@/components/_settings'
 
@@ -39,8 +40,10 @@ const Thumb = styled(Switch.Thumb)`
 `
 
 export const CustomSwitch = () => {
+  const dispatch = useDispatch()
+
   return (
-    <Root>
+    <Root onCheckedChange={() => dispatch({ type: 'SWITCH_PLAN' })}>
       <Thumb />
     </Root>
   )

@@ -11,7 +11,7 @@ import { Plan as PlanType } from '@/models/plan'
 
 const Container = styled.div<{ isActive: boolean }>`
   width: 22%;
-  height: 120px;
+  height: 132px;
   padding: 5% 4%;
   display: flex;
   flex-direction: column;
